@@ -12,7 +12,7 @@ document.querySelector(".translate-btn").addEventListener("click", async () => {
 
     if (text) {
         try {
-            const response = await translate(text, initialLanguage, resultLanguage);
+            const response = await sendMessage(text, initialLanguage, resultLanguage);
             renderResponse(response);
         } catch (error) {
             console.error("Error during translation:", error);
@@ -22,25 +22,20 @@ document.querySelector(".translate-btn").addEventListener("click", async () => {
     }
 });
 
-async function translate(text, initialLanguage, resultLanguage) {
-    const messages = [
-        {
-            role: "system",
-            content: `Translate whatever in user input from ${initialLanguage} to ${resultLanguage}, respond with the translated content only, if the user language does not seem to be ${initialLanguage}, say: the entered text does not seem to be ${initialLanguage}, please try again`,
-        },
-        {
-            role: "user",
-            content: text,
-        },
-    ];
+async function sendMessage(userInput, initialLang, resultLang) {
+  const res = await fetch("/.netlify/functions/translate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+        message: userInput,   //sending user input
+        initialLanguage: initialLang,
+        resultLanguage: resultLang
+    }),
+  });
 
-    const response = await client.chat.completions.create({
-        model: "gpt-4",
-        messages: messages,
-        temperature: 0,
-    });
-
-    return response.choices[0].message.content;
+  const data = await res.json();
+  console.log(data);
+  return data.content;
 }
 
 function renderResponse(response) {

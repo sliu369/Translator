@@ -2,7 +2,7 @@ import OpenAI from "openai";
 
 const client = new OpenAI({
     dangerouslyAllowBrowser: true,
-    apiKey: import.meta.env.OPENAI_API_KEY, // Use the API key from the environment variable
+    apiKey: process.env.OPENAI_API_KEY, // Use the API key from the environment variable
 });
 
 document.querySelector(".translate-btn").addEventListener("click", async () => {

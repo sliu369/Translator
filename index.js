@@ -1,8 +1,3 @@
-const client = new OpenAI({
-    dangerouslyAllowBrowser: true,
-    apiKey: process.env.OPENAI_API_KEY, // Use the API key from the environment variable
-});
-
 document.querySelector(".translate-btn").addEventListener("click", async () => {
     const text = document.querySelector(".user-input").value;
     const initialLanguage = document.querySelector(".initial-language").value;

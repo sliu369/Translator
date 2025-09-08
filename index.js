@@ -1,5 +1,3 @@
-import OpenAI from "openai";
-
 const client = new OpenAI({
     dangerouslyAllowBrowser: true,
     apiKey: process.env.OPENAI_API_KEY, // Use the API key from the environment variable

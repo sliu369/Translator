@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <img class="logo" src="/assets/parrot.png">
+        <img class="logo" src="https://cdn-icons-png.flaticon.com/512/4726/4726262.png" alt="PollyGlot Logo">
         <div class="header-texts">
             <h1 class="title">PollyGlot</h1>
             <p class="description">Perfect Translation Every Time</p>
@@ -28,35 +28,41 @@
                         <option value="english">English</option>
                         <option value="chinese">Chinese</option>
                         <option value="french">French</option>
+                        <option value="spanish">Spanish</option>
+                        <option value="german">German</option>
                     </select>
                 </div>
                 
                 <textarea 
-                    max-length="400"
+                    maxlength="400"
                     name="user-input"
                     class="user-input" 
-                    placeholder="texts to be translated">
-                </textarea>
+                    placeholder="Enter text to be translated here..."
+                ></textarea>
+                <div class="char-count"><span id="char-count">0</span>/400 characters</div>
             </div>
     
             <div class="result">
                 <div class="translate-options">
                     <label for="result-language">Translate to</label>
                     <select class="result-language" name="result-language">
-                        <option value="english">English</option>
                         <option value="chinese">Chinese</option>
                         <option value="french">French</option>
+                        <option value="english">English</option>
+                        <option value="spanish">Spanish</option>
+                        <option value="german">German</option>
                     </select>
                 </div>
                 
                 <textarea 
                     name="result-output"
                     class="result-output" 
-                    placeholder="texts translated will display here">
-                </textarea>
+                    placeholder="Translated text will appear here..."
+                    readonly
+                ></textarea>
             </div>
         </div>
-        <button class="translate-btn">Translate</button>
+        <button class="translate-btn">Translate <i class="fas fa-language"></i></button>
     </main>
 
     <footer>

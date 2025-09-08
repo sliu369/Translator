@@ -36,6 +36,9 @@ header {
     display: flex;
     align-items: center;
     box-shadow: var(--shadow);
+    background-image: url("/assets/worldmap.png");
+    background-size: cover;
+    background-position: center;
 }
 
 .logo {
